@@ -59,3 +59,39 @@ img + p{
     width: 100px;
     padding: 1em;
 }
+
+#menu ul li ul{
+    display: none;
+}
+
+/* Menu */
+
+#menu ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#menu li{
+    background-color: var(--coyote-brown);
+    padding: .75em 1em;
+    text-align: center;
+}
+
+#menu li:hover {
+    background-color: var(--camel);
+}
+
+#menu li:hover a{
+    color: var(--coyote-brown);
+}
+
+#menu a{
+    color: var(--bone);
+    text-decoration: none;
+}
+
+.active {
+    background-color: var(--camel);
+}
