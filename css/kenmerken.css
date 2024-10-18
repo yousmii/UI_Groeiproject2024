@@ -1,0 +1,40 @@
+.grid {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 5fr 2fr;
+    grid-template-areas:
+            "header header"
+            "main aside"
+            "footer footer";
+}
+
+.border {
+    border-radius: .5rem;
+    border: 1px solid var(--russet);
+    padding: .5rem;
+}
+
+.gheader {
+    grid-area: header ;
+}
+
+.gmain {
+    grid-area: main;
+}
+
+.gaside {
+    grid-area: aside;
+}
+
+.gfooter {
+    grid-area: footer;
+    text-align: center;
+}
+
+:is(h1, h2, h3, h4, h5, h6){
+    text-transform: capitalize;
+}
+
+aside img{
+    width: 100%;
+}
