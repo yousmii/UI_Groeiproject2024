@@ -34,6 +34,10 @@ h4 {
     font-size: 1.2em;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    text-transform: capitalize;
+}
+
 nav a:hover {
     color: var(--coyote-brown);
 }
@@ -109,7 +113,7 @@ header {
     position: relative;
 }
 
-#menu .has-submenu > a {
+#menu .active    > a {
     color: black;
 }
 
@@ -131,5 +135,9 @@ header {
 }
 
 #menu .has-submenu > a::after {
-    content: "+";
+    content: "▼";
+    font-size: x-small;
+    margin-left: .5em;
 }
+
+

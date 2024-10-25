@@ -31,10 +31,34 @@
     text-align: center;
 }
 
-:is(h1, h2, h3, h4, h5, h6){
-    text-transform: capitalize;
-}
-
 aside img{
     width: 100%;
+}
+
+/* img-label */
+.img-label {
+    position: relative;
+}
+
+.img-label span {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+
+    padding: 3px;
+
+    font-size: 130%;
+    background-color: var(--bone);
+    border: var(--russet) solid 1px;
+
+    text-transform: uppercase;
+
+    transition: transform 300s ease-out;
+
+}
+
+.img-label:hover span {
+    transform: scale(10) rotate(360000deg);
+    /*transform-origin: top right;*/
 }
