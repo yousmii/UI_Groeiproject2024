@@ -1,0 +1,32 @@
+/* Hier scrijf je je css voor de flexbox oefenging: */
+
+.foto-gallerij ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+
+    gap: 1rem;
+
+    align-content: center;
+    justify-content: center;
+
+    align-items: center;
+    justify-items: center;
+}
+
+.foto-gallerij li{
+    width: 100%;
+    max-width: 22rem;
+    min-width: 300px;
+
+    border-radius: 1rem;
+    border: 1px solid var(--russet);
+    overflow: hidden;
+}
+
+.foto-gallerij img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}

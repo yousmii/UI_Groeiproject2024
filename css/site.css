@@ -1,3 +1,7 @@
+/*kleurpalet:*/
+/*!*https://coolors.co! --> cool feature from photo*/
+
+/* CSS HEX */
 :root {
     --backgrd: #e6d9c7;
     --ecru: #a89c68;
@@ -7,23 +11,29 @@
     --camel: #bc9767;
     --russet: #804f32;
     --light-french-beige: #c0a375;
-    font-size: 16px;
-    font-family: "Poppins", sans-serif;
 }
 
+/*Algemene eigenschappen*/
 body {
-    width: 95vw;
-    font-size: 16px;
     background-color: var(--backgrd);
+    font-family: 'Poppins', serif;
+    font-size: 16px;
+    width: 95%;
+    margin: auto;
+    padding-top: .5em;
+}
+
+h1, h2, h3, h4 {
+    text-transform: capitalize;
 }
 
 h1 {
     font-size: 2em;
-
 }
 
 h2 {
     font-size: 1.5em;
+    /*text-decoration: wavy underline black 1px;*/
 }
 
 h3 {
@@ -34,110 +44,206 @@ h4 {
     font-size: 1.2em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    text-transform: capitalize;
+footer {
+    text-align: center;
 }
 
-nav a:hover {
-    color: var(--coyote-brown);
-}
-
-p:first-letter {
-    font-size: 180%;
-    font-weight: 200;
-}
-
-img + p {
-    font-style: italic;
-}
-
+/*Titels verbergen*/
 .hiddenTitle {
     position: absolute;
     width: 1px;
     height: 1px;
     overflow: hidden;
-    visibility: hidden;
+    left: -10000px;
 }
 
-#logo {
-    width: 100px;
-    padding: 1em;
+nav#menu ul li a:hover {
+    color: var(--coyote-brown);
+}
+
+p::first-letter {
+    font-size: 180%;
+    font-weight: lighter;
+}
+
+/*p::after {*/
+/*   content: "<einde paragraaf>";*/
+/*    font-family: monospace;*/
+/*}*/
+
+/*!*
+==============
+Styling menu*!
+==============
+*/
+
+/*!*Voorlopig submenu's verbergen*!*/
+#menu .submenu ul {
+    display: none;
 }
 
 
-/* Menu */
-header {
-    display: flex;
-    align-items: center;
-}
-#menu {
-    flex-grow: 1;
-}
-
-#menu .active {
-    background-color: var(--camel);
-    color: black;
-}
-
+/*!*Algemene eigenschappen*!*!*/
 #menu ul {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
+    list-style: none;
     padding-left: 0;
 }
 
-#menu li{
+#menu ul li {
     background-color: var(--coyote-brown);
-    /*padding: .75em 1em;*/
-    text-align: center;
-    flex-grow: 1;
+    box-sizing: border-box;
 }
 
+#menu li a {
+    text-decoration: none;
+    color: var(--bone);
+}
+
+
+/*!*hover menu item*!*/
 #menu li:hover {
     background-color: var(--camel);
 }
 
-#menu li:hover > a {
+/*!* menu: regular css *!*/
+/*#menu > ul  {*/
+/*    !*door de opbouw van de menustructuur staat er nog een spatie in de ul,*/
+/*    hierdoor kunnen we niet 100 procent stylen*!*/
+/*    font-size: 0;*/
+/*}*/
+
+/*#menu > ul > li {*/
+/*    display: inline-block;*/
+/*    vertical-align: top;*/
+/*    width: 20%;*/
+/*    font-size: 1rem;*/
+/*}*/
+
+/*#menu ul li {*/
+/*    text-align: center;*/
+/*}*/
+
+
+#logo {
+    padding: 1em;
+}
+
+#menu li {
+    /*dit doen we omdat het a element het lijstelement zou vullen, door het wat extra volume te geven vult dit gemakkelijker op.*/
+}
+
+
+/* menu: flexbox */
+#menu > ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu > ul > li {
+    /*    !*justify-content: stretch;*! !* 'stretch' -> niet bruikbaar in flexbox!  => flex-items -> flex-grow! *!*/
+    flex-grow: 1;
+}
+
+#menu ul li a {
+    text-align: center;
+    display: block;
+    padding: 0.75em 1em;
+}
+
+
+/*!*Het actieve menu item*!*/
+#menu > ul .actief {
+    background-color: var(--light-french-beige);
+    padding: 0.75em 1em; /*nodig omdat dit geen stylieng via de a tag krijgt*/
+    text-align: center;
+}
+
+#menu > ul .actief a {
     color: var(--coyote-brown);
 }
 
-#menu a {
-    padding: .75em 1em;
-    display: block;
-    color: var(--bone);
-    text-decoration: none;
+/*!** Aanduiden dat er een submenu is **!*/
+.submenu > a::after,
+.submenu.actief::after {
+    content: '+';
+    padding-left: 5px; /* afstand tov gewone link-tekst */
 }
 
-/*Submenu*/
-#menu .has-submenu {
-    position: relative;
-}
-
-#menu .active    > a {
-    color: black;
-}
-
-#menu .has-submenu ul {
+/*!** Submenu's pas tonen bij hover **!*/
+#menu .submenu ul {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
 }
 
-#menu .has-submenu ul > li:hover > a {
-    color: black;
+#menu .submenu ul li a {
+    color: var(--bone);
 }
 
-#menu .has-submenu:hover ul{
-    display: flex;
+#menu .submenu:hover ul {
+    display: flex; /* of: display: block; */
     flex-direction: column;
 }
 
-#menu .has-submenu > a::after {
-    content: "▼";
-    font-size: x-small;
-    margin-left: .5em;
+/** Submenu als overflow **/
+/* enkel niveau 2 absolute tov niveau 1 */
+#menu .submenu {
+    position: relative;
+}
+
+#menu .submenu > ul {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+}
+
+/*Als we nog tijd hebben*/
+/*ervoor zorgen dat het menu naast het logo komt*/
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+.bordered {
+    border: 1px solid var(--russet);
+    padding: .5rem;
+    border-radius: .5rem;
 }
 
 
+.img-label {
+    position: relative;
+}
+
+.img-label span {
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 1rem;
+    padding: 0 .2rem;
+    font-size: 130%;
+    background-color: var(--bone);
+    border: 1px solid var(--russet);
+    border-right-width: 0;
+    text-transform: uppercase;
+    transition: font-size 0.3s;
+}
+
+
+.img-label:hover span {
+    font-size:200%;
+}
+
+/*** Youtube-film en klikbare afbeelding ***/
+/*=========================================*/
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
