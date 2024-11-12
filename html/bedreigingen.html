@@ -41,7 +41,60 @@
 <main class="panel gmain">
     <article>
         <h2>Meldpunt voor Heyna spotten</h2>
-        <form action="bevestiging.html"
+        <form action="bevestiging.html" method="get">
+            <fieldset>
+                <legend>Persoonlijke Gegevens</legend>
+                <div>
+                    <label for="naam">Geef je naam:</label>
+                    <input type="text" id="naam" name="naam" placeholder="bv. Joske Vermeulen" required>
+                </div>
+                <div>
+                    <label for="nummer">Geef je telefoonnummer:</label>
+                    <input type="tel" id="nummer" name="nummer" pattern="^0?[1-9][0-9]{7,8}$"
+                           placeholder="bv. 0477788888" required>
+                </div>
+                <div>
+                    <label for="email">Geef je email:</label>
+                    <input type="email" id="email" name="email" placeholder="bv. info@kg.be" required>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Extra informatie</legend>
+                <div>
+                    <label for="maand">Wanneer was de spotting?</label>
+                    <select id="maand" name="maand">
+                        <option>kies een waarde</option>
+                        <optgroup label="winter">
+                            <option value="december">december</option>
+                            <option value="januari">januari</option>
+                            <option value="februari">februari</option>
+                        </optgroup>
+                        <optgroup label="lente">
+                            <option value="maart">maart</option>
+                            <option value="april">april</option>
+                            <option value="mei">mei</option>
+                        </optgroup>
+                        <optgroup label="zomer">
+                            <option value="juni">juni</option>
+                            <option value="juli">juli</option>
+                            <option value="augustus">augustus</option>
+                        </optgroup>
+                        <optgroup label="herfst">
+                            <option value="september">september</option>
+                            <option value="oktober">oktober</option>
+                            <option value="november">november</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div>
+                    <label for="beschrijving">Beschrijving:</label>
+                    <textarea id="beschrijving" name="beschrijving"
+                              placeholder="Geef een duidelijke beschrijving van waar je de hyena('s) hebt gespot"></textarea>
+                </div>
+            </fieldset>
+
+            <input type="submit" value="Verzend">
+        </form>
     </article>
 
     <article>

@@ -42,5 +42,36 @@ body {
 /*===============*/
 /***** Start hier de CSS voor Bedreiging: Formulier spotting *****/
 
+fieldset {
+    border-radius: 5px;
+}
 
+fieldset div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    align-items: center;
+}
 
+fieldset div input, fieldset div select {
+    flex-grow: 1;
+    max-width: 50%;
+}
+
+input, textarea, select{
+    font-family: "Poppins", sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+fieldset div label {
+    margin-bottom: 5px;
+}
+
+fieldset div textarea{
+    width: 100%;
+    height: 100px;
+}
